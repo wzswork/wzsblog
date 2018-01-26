@@ -31,11 +31,11 @@ String也拥有丰富的操作方法，进行拼接，截取等操作。
 ### boolean类型
 boolean类型只有两个值 true和false。在js中只有小写的才是boolean值，大写不是。
 此类型只需要注意一下各种值在被强制转换为boolean值时的情况即可。
-数据类型||false||true
-number||0和NaN||非0数值，包括infinity
-object||null||除了null以外的所有对象
-String||空字符串""||非空字符串
-undefined||undefined||-
+|数据类型|false|true|
+|number|0和NaN|非0数值，包括infinity|
+|object|null|除了null以外的所有对象|
+|String|空字符串""|非空字符串|
+|undefined|undefined|-|
 
 ### undefined和null
 undefined和null，有些类似，在相等检测时 undefined == null （true）
