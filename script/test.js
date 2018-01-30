@@ -1,11 +1,21 @@
 
-function A(){
-    this.c = 3;
-    return {
-        a:1,
-        b:2
-    };
+
+var b = {
+    a:2
 }
 
-var a = new A();
-console.log(a);
+function loga(){
+    console.log(this.a)
+}
+
+
+
+
+var geta = loga.bind(b);
+
+var a = {
+    a:1,
+    printa: geta
+}
+
+a.printa();
