@@ -1,21 +1,17 @@
 
 
-var b = {
-    a:2
+var b = 1;
+
+function c(){
+    return function(){
+        console.log(b)
+    }
 }
 
-function loga(){
-    console.log(this.a)
-}
+let a = c();
 
+a();
+b = 2;
+a();
 
-
-
-var geta = loga.bind(b);
-
-var a = {
-    a:1,
-    printa: geta
-}
-
-a.printa();
+// b();
