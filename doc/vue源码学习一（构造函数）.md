@@ -31,7 +31,7 @@ core目录下的几个文件夹，顾名思义大致可猜到分别是什么功�
 
 打开index.js,代码很简单，就是返回一个vue的构造函数，以及各个组装过程的调用。Vue函数里面也只有一个在非生产环境时，没有把Vue作为构造函数调用时的报错，毫无疑问，主要工作，都放在_this.init()之中。
 
-按照代码的运行逻辑，先看initMixin(),在顶部的import里面可以看到，代码就在init.js之中。
+按照代码的运行逻辑，先看initMixin(),在顶部的import里面可以看到，代码就在src\core\instance\init.js之中。
 
 ### initMixin
 
@@ -84,3 +84,10 @@ istanbul是个测试代码覆盖率的工具，这行注释表示else语句不�
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
 
+这里我们也先留着之后再分析，除了初始化操作以外，还插入了调用生命周期函数的callHook。
+接着的一段代码，又是一段在非生产环境中打时间戳测试性能的代码。不贴出来了。
+
+在_init的最后，调用了一下vm.$mount，可以在API说明中看到是用来挂载实例的，这里也看不出这个方法是在哪里声明的，只能等我们看完各式init函数之后才能知道了。
+
+到现在，整个vue.prototype._init所做的事情基本就结束了，衍生开来，如前文所言，构造函数所做的主要工作，就是调用了一下这个_init方法,所以也可以说构造函数运行到此就结束了。
+接下来，就要进入各个具体的initXXX中细看了。
