@@ -49,7 +49,7 @@ allowedGlobals和warnNonPresent，都是在代码上方定义的函数。
 
 makeMap的定义位置想按图索骥找起来，还挺麻烦的，因为工具函数在暴露的时候，好多用了import*，这里需要多搜索下代码，可以找到在src/shared/util.js中。主要功能注释已经写得很清楚了，就是根据输入的字符串，创建一个map，并返回一个可以验证输入值是否属于该map的函数。还可以设定是否无视大小写。
 
-warn的定义位置在src\core\util\debug.js中，主要功能也很简单，在有自定义的warnHandler时，就调用，在没有自定义的warnHandler时，就在控制的告警报错。warn的代码里面也调用了一个工具函数generateComponentTrace。其定义就在文件底部，作用就是返回warn传入的vm的调用堆栈。
+warn的定义位置在src\core\util\debug.js中，主要功能也很简单，在有自定义的warnHandler时，就调用，在没有自定义的warnHandler时，就在控制的告警报错。warn的代码里面也调用了一个工具函数generateComponentTrace。其定义就在文件底部，作用就是返回warn传入的vm的调用堆栈，用于在报错时展示出来。
 
 至此，initProxy的全部功能就结束了，但是在proxy.js这个文件里，还顺便做了点其他的事情。
 
