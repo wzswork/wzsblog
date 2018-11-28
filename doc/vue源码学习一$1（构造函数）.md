@@ -60,7 +60,23 @@ mark工具函数可以在工具util/perf中找到，是调用window.performance 
 
 然后是一个_isVue标志，防止被observe。具体，可以打开observer/index，可以看到在给一个值创建observer时，做了条件判断，如果_isVue为true，就不创建。
 
-在接着，是合并options参数的代码，同时如果是组件，就走组件参数初始化。组件的注册我们还没看过，所以这里可以先忽略，接着往下看。
+在接着，是合并options参数的代码，同时如果是组件，就走组件参数初始化。
+    
+    // merge options
+    if (options && options._isComponent) {
+      // optimize internal component instantiation
+      // since dynamic options merging is pretty slow, and none of the
+      // internal component options needs special treatment.
+      initInternalComponent(vm, options)
+    } else {
+      vm.$options = mergeOptions(
+        resolveConstructorOptions(vm.constructor),
+        options || {},
+        vm
+      )
+    }
+
+组件的参数合并比较复杂，我们稍后单开一章详细分析其整个流程。
 
     /* istanbul ignore else */
     if (process.env.NODE_ENV !== 'production') {

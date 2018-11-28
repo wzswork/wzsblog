@@ -1,4 +1,4 @@
-#initProxy
+# initProxy
 
 initProxy可以在顶部的引用看到，是在src\core\instance\proxy.js中。我们打开文件，可以发现整个文件也就只有配置好代理这一个功能，代码比较简单。
 
